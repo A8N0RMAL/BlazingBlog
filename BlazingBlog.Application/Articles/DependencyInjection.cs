@@ -11,7 +11,11 @@ namespace BlazingBlog.Application.Articles
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IArticleService, ArticleService>();
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+            });
+
             return services;
         }
     }
