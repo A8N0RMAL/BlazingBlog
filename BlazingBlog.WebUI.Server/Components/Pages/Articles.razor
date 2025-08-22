@@ -29,7 +29,7 @@ else
         await Task.Delay(1000);
 
         // injecting the Article Service and use GetAllArticles() method.
-        var result = ArticleService.GetAllArticles();
+        var result = await ArticleService.GetAllArticlesAsync();
         if (result is not null)
             articles = result;
     }
